@@ -1,9 +1,8 @@
 @import "../../mixins.scss";
 .carousel {
-  margin-bottom: 50px;
-  .contentWrapper {
-    position: relative;
-  }
+  margin-top: 20px;
+  margin-bottom: 20px;
+
   .carouselTitle {
     font-size: 24px;
     color: white;
@@ -11,12 +10,15 @@
     font-weight: normal;
   }
   .arrow {
-    font-size: 30px;
-    color: black;
+    height: 30px;
+    width: 30px;
+    color: white;
     position: absolute;
     top: 44%;
     transform: translateY(-50%);
     cursor: pointer;
+    background-color: black;
+    border-radius: 50%;
     opacity: 0.5;
     z-index: 1;
     display: none;
@@ -83,6 +85,15 @@
     margin-right: -20px;
     margin-left: -20px;
     padding: 0 20px;
+    &::-webkit-scrollbar {
+      height: 0;
+      width: 0;
+      display: none;
+    }
+
+    &::-webkit-scrollbar-thumb:horizontal {
+      display: none;
+    }
     @include md {
       gap: 20px;
       overflow: hidden;
@@ -90,13 +101,13 @@
       padding: 0;
     }
     .carouselItem {
-      width: 125px;
+      width: 80px;
       cursor: pointer;
       @include md {
-        width: calc(25% - 15px);
+        width: calc(25% - 45px);
       }
       @include lg {
-        width: calc(20% - 16px);
+        width: calc(20% - 110px);
       }
       flex-shrink: 0;
       .posterBlock {
