@@ -1,26 +1,14 @@
 export const navListData = [
   {
     id: 1,
-    link: "#",
-    name: "home",
+    link: "/explore/movies",
+    name: "Movies",
     active: true,
   },
   {
     id: 2,
-    link: "#schedule",
-    name: "schedule",
-    active: false,
-  },
-  {
-    id: 3,
-    link: "#trend",
-    name: "trend",
-    active: false,
-  },
-  {
-    id: 4,
-    link: "#blogs",
-    name: "blogs",
+    link: "/explore/tvShows",
+    name: "Tv Shows",
     active: false,
   },
 ];

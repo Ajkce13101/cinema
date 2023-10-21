@@ -8,6 +8,7 @@ import CircleRating from "../circleRating/circleRating.tsx";
 import { UseMovieGenres } from "@/hooks/useMovieGenres.tsx";
 import { UseTvGenres } from "@/hooks/useTvGenres.tsx";
 import Genres from "../genres/Genres.tsx";
+import { useNavigate } from "react-router-dom";
 
 interface Genre {
   id: number;
@@ -16,9 +17,11 @@ interface Genre {
 const Carousel = ({
   data,
   isLoading,
+  type,
 }: {
   data: Movie[] | undefined;
   isLoading: boolean;
+  type: string;
 }) => {
   const allGenres: { [key: number]: Genre } = {};
   const { data: movieGenres } = UseMovieGenres();
@@ -45,6 +48,13 @@ const Carousel = ({
         behavior: "smooth",
       });
     }
+  };
+
+  const navigate = useNavigate();
+
+  const gotoDetails = ({ id }: { id: number }) => {
+    navigate(`/details/${id}/${type}`);
+    return { id, type };
   };
 
   const skItem = () => {
@@ -81,8 +91,13 @@ const Carousel = ({
         <div className="carouselItems" ref={carouselContainer}>
           {data?.map((item) => {
             const Posterurl = `https://image.tmdb.org/t/p/original/${item.poster_path}`;
+
             return (
-              <div className="carouselItem" key={item.id}>
+              <div
+                className="carouselItem"
+                key={item.id}
+                onClick={() => gotoDetails({ id: item.id })}
+              >
                 <div className="posterBlock">
                   <Img src={Posterurl}></Img>
                   <CircleRating rating={item.vote_average}></CircleRating>

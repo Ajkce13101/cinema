@@ -43,4 +43,5 @@ export const UseUpcomingMovieList = () =>
         .get(`/movie/now_playing`)
         .then((res) => res.data)
         .catch((error) => console.log(error)),
+    keepPreviousData: true,
   });

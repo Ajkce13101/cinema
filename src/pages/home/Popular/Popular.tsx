@@ -23,7 +23,7 @@ const Popular = () => {
             onTabChange={onTabChange}
           ></SwitchTabs>
         </div>
-        <Carousel data={data?.results} isLoading={isLoading}></Carousel>
+        <Carousel data={data?.results} isLoading={isLoading} type={type}></Carousel>
       </div>
     </section>
   );

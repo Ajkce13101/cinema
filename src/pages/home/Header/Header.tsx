@@ -3,14 +3,16 @@ import { navListData } from "@/data/navListData";
 import "./header.css";
 import { ModeToggle } from "@/components/mode-toggle";
 import SearchBar from "@/components/Search";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
     <header className="header">
       <div className="max-container padding-x flex justify-between items-center">
-        <a href="/" className="logo">
+        <NavLink to="/" className="logo">
           Cinema
-        </a>
+        </NavLink>
+
         <ul className="nav">
           {navListData.map((item) => (
             <Navitem key={item.id} {...item}></Navitem>
