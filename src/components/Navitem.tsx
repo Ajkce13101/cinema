@@ -1,5 +1,5 @@
 import "./navitem.css";
-import "../hooks/useMovieList";
+import "../hooks/useUpcomingMovieList";
 
 const Navitem = ({ name, link }: { name: string; link: string }) => {
   return (

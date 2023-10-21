@@ -1,18 +1,19 @@
 import React, { useState } from "react";
-import SwitchTabs from "../switchTabs/SwitchTabs";
-import { UseMovieList } from "@/hooks/useMovieList";
-import Carousel from "../carousel/Carousel";
+import SwitchTabs from "../../../components/switchTabs/SwitchTabs";
+
+import Carousel from "../../../components/carousel/Carousel";
+import { UseTrendingMovieList } from "@/hooks/useTrendingMovie";
 
 const Trending = () => {
   const [timeFrame, setTimeFrame] = useState("day");
 
-  const { data, isLoading } = UseMovieList({ time: timeFrame });
+  const { data, isLoading } = UseTrendingMovieList({ time: timeFrame });
 
   const onTabChange = (tab: string) => {
     setTimeFrame(tab === "Day" ? "day" : "week");
   };
   return (
-    <section className="relative overflow-hidden py-20">
+    <section className="relative overflow-hidden pt-20">
       <div className="max-container padding-x">
         <div className="flex justify-between">
           <div className="flex-1">

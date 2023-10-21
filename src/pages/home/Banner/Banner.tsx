@@ -2,7 +2,10 @@
 // import { UseMovieList } from "../hooks/useMovieList";
 import MovieList from "@/components/MovieList";
 import MovieSwiper from "@/components/MovieSwiper";
-import { UseMovieList } from "@/hooks/useMovieList";
+import {
+  UseMovieList,
+  UseUpcomingMovieList,
+} from "@/hooks/useUpcomingMovieList";
 import { useEffect, useState } from "react";
 
 interface Movie {
@@ -24,7 +27,7 @@ interface Movie {
 }
 
 const Banner = () => {
-  const { data } = UseMovieList({ time: "week" });
+  const { data } = UseUpcomingMovieList();
   // const mock_data = {
   //   results: [{ id: 575264 }],
   // };
@@ -36,7 +39,6 @@ const Banner = () => {
       setActiveMovieId(data.results[0].id);
     }
   }, [data]);
-  console.log(activeMovieId);
   const handleSwiper = (id: number) => {
     setActiveMovieId(id);
   };

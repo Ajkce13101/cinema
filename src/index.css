@@ -10,7 +10,7 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
+    --primary: 13, 100%, 50%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -33,7 +33,7 @@
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
+    --primary: 13, 100%, 50%;
     --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -55,5 +55,125 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .max-container {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .section-effect::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: -30px;
+    height: 5px;
+    width: 50%;
+    background: linear-gradient(
+      90deg,
+      var(--primary),
+      var(--primary),
+      transparent
+    );
+    z-index: 1000;
+  }
+
+  .input {
+    @apply sm:flex-1 max-sm:w-full text-base leading-normal  pl-5 max-sm:p-5 outline-none sm:border-none border  max-sm:rounded-full;
+  }
+}
+
+@layer utilities {
+  .padding {
+    @apply sm:px-16 px-8 sm:py-24 py-12;
+  }
+
+  .padding-x {
+    @apply sm:px-16 px-8;
+  }
+
+  .padding-y {
+    @apply sm:py-24 py-12;
+  }
+
+  .padding-l {
+    @apply sm:pl-16 pl-8;
+  }
+
+  .padding-r {
+    @apply sm:pr-16 pr-8;
+  }
+
+  .padding-t {
+    @apply sm:pt-24 pt-12;
+  }
+
+  .padding-b {
+    @apply sm:pb-24 pb-12;
+  }
+
+  .info-text {
+    @apply font-montserrat text-slate-gray text-lg leading-7;
+  }
+  .date-effect {
+    text-shadow: 0 0 13px rgba(255, 255, 255, 2);
+    font-weight: 800;
+    font-size: 4rem;
+    -webkit-mask: linear-gradient(#000000 0 0), linear-gradient(#000000 0 0);
+    -webkit-mask-clip: text, padding-box;
+    -webkit-mask-composite: xor;
+  }
+
+  .section-effect::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: -10px;
+    height: 5px;
+    width: 70%;
+    display: inline-block;
+    background: linear-gradient(
+      90deg,
+      hsl(13, 100%, 50%),
+      hsl(13, 100%, 50%),
+      transparent
+    );
+    z-index: 1000;
+  }
+
+  .play-icon {
+    position: relative;
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    color: hsl(13, 100%, 50%);
+    z-index: 100;
+  }
+  .animate-play {
+    position: absolute;
+    content: "";
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: transparent;
+    border: 10px solid #ffffff;
+    border-radius: 50%;
+    animation: button 1s linear infinite;
+    z-index: 1000;
+  }
+
+  @keyframes button {
+    0%,
+    100% {
+      opacity: 0.3;
+      filter: blur(4px);
+    }
+    50% {
+      opacity: 1;
+      filter: blur(10px);
+    }
   }
 }
