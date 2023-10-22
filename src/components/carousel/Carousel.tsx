@@ -14,6 +14,7 @@ interface Genre {
   id: number;
   name: string;
 }
+
 const Carousel = ({
   data,
   isLoading,
@@ -23,17 +24,6 @@ const Carousel = ({
   isLoading: boolean;
   type: string;
 }) => {
-  const allGenres: { [key: number]: Genre } = {};
-  const { data: movieGenres } = UseMovieGenres();
-  console.log(movieGenres);
-  const { data: tvGenres } = UseTvGenres();
-  console.log(tvGenres);
-  const MergedGenres = [movieGenres, tvGenres];
-  console.log(MergedGenres);
-  MergedGenres.map((data) => {
-    return data?.genres.map((item) => (allGenres[item.id] = item));
-  });
-
   const carouselContainer = useRef<HTMLDivElement>(null);
 
   const navigation = (dir: string) => {
@@ -50,6 +40,16 @@ const Carousel = ({
     }
   };
 
+  const allGenres: { [key: number]: Genre } = {};
+  const { data: movieGenres } = UseMovieGenres();
+  console.log(movieGenres);
+  const { data: tvGenres } = UseTvGenres();
+  console.log(tvGenres);
+  const MergedGenres = [movieGenres, tvGenres];
+  console.log(MergedGenres);
+  MergedGenres.map((data) => {
+    return data?.genres.map((item) => (allGenres[item.id] = item));
+  });
   const navigate = useNavigate();
 
   const gotoDetails = ({ id }: { id: number }) => {

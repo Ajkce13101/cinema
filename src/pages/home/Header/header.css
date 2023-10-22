@@ -20,6 +20,9 @@ header.scrolled {
   font-weight: 800;
   text-decoration: none;
   text-transform: uppercase;
+  background-image: linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .nav {
   display: flex;

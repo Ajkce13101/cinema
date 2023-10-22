@@ -35,12 +35,18 @@ const axiosInstance = axios.create({
   },
 });
 
-export const UseMovieDetails = ({ movie_id }: { movie_id: number }) =>
+export const UseMovieDetails = ({
+  movie_id,
+  type = "movie",
+}: {
+  movie_id: number;
+  type?: string;
+}) =>
   useQuery<Movie, Error>({
     queryKey: [movie_id],
     queryFn: () =>
       axiosInstance
-        .get(`/movie/${movie_id}`)
+        .get(`/${type}/${movie_id}`)
         .then((res) => res.data)
         .catch((error) => console.log(error)),
     enabled: !!movie_id,

@@ -6,21 +6,25 @@ const Genres = ({
   data,
   genres,
 }: {
-  data: unknown;
+  data: number[] | undefined;
   genres: { [key: number]: Genre };
 }) => {
   console.log(data);
-  return (
-    <div className="genres">
-      {data?.map((item) => {
-        return (
-          <div className="genre" key={item}>
-            {genres[item].name}
-          </div>
-        );
-      })}
-    </div>
-  );
+  console.log(genres);
+
+  if (data && data?.length > 1) {
+    return (
+      <div className="genres">
+        {data?.map((item) => {
+          return (
+            <div className="genre" key={item}>
+              {genres[item].name}
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
 };
 
 export default Genres;
