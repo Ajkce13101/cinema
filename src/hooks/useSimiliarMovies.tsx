@@ -2,6 +2,11 @@ import axios from "axios";
 
 import { useQuery } from "@tanstack/react-query";
 
+export interface Data {
+  page: number;
+  results: Movie[];
+}
+
 export interface Movie {
   adult: boolean;
   backdrop_path: string;
@@ -10,7 +15,7 @@ export interface Movie {
   original_language: string;
   original_title: string;
   overview: string;
-  genres: Genre[];
+  genre_ids: number[];
   poster_path: string;
   media_type: string;
   popularity: number;
@@ -18,19 +23,7 @@ export interface Movie {
   video: boolean;
   vote_average: number;
   vote_count: number;
-  runtime: number;
-  tagline: string;
-  credits?: { cast: Cast[] };
-}
-export interface Genre {
-  id: number;
-  name: string;
-}
-
-export interface Cast {
-  name: string;
-  profile_path: string;
-  character: string;
+  name?: string;
 }
 
 const axiosInstance = axios.create({
@@ -42,19 +35,12 @@ const axiosInstance = axios.create({
   },
 });
 
-export const UseMovieDetails = ({
-  movie_id,
-  type = "movie",
-}: {
-  movie_id: number;
-  type?: string;
-}) =>
-  useQuery<Movie, Error>({
-    queryKey: ["MovieDetails", movie_id],
+export const useSimiliarMovies = ({ type, id }: { type: string; id: number }) =>
+  useQuery<Data, Error>({
+    queryKey: ["Similiarmovies", id, type],
     queryFn: () =>
       axiosInstance
-        .get(`/${type}/${movie_id}?append_to_response=credits`)
+        .get(`/${type}/${id}/similar`)
         .then((res) => res.data)
         .catch((error) => console.log(error)),
-    enabled: !!movie_id,
   });

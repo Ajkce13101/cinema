@@ -6,6 +6,8 @@ import DetailsPage from "./pages/details/DetailsPage";
 import Explore from "./pages/explore/Explore";
 import HomeLayout from "./pages/HomeLayout";
 import Error from "./pages/Error";
+import Search from "./pages/search/Search";
+import ScrollToTop from "./components/ScrollToTop";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
         path: "/explore/:type",
         element: <Explore></Explore>,
       },
+      {
+        path: "/search/:searchQuery",
+        element: <Search></Search>,
+      },
     ],
   },
 ]);
@@ -33,6 +39,7 @@ const App = () => {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <RouterProvider router={router}></RouterProvider>
+      
     </ThemeProvider>
   );
 };

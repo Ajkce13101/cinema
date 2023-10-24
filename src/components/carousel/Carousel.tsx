@@ -9,6 +9,7 @@ import { UseMovieGenres } from "@/hooks/useMovieGenres.tsx";
 import { UseTvGenres } from "@/hooks/useTvGenres.tsx";
 import Genres from "../genres/Genres.tsx";
 import { useNavigate } from "react-router-dom";
+import PosterUrl from "../../assets/no-poster.png";
 
 interface Genre {
   id: number;
@@ -90,7 +91,12 @@ const Carousel = ({
       ) : (
         <div className="carouselItems" ref={carouselContainer}>
           {data?.map((item) => {
-            const Posterurl = `https://image.tmdb.org/t/p/original/${item.poster_path}`;
+            let Posterurl = "";
+            if (item.poster_path) {
+              Posterurl = `https://image.tmdb.org/t/p/original/${item.poster_path}`;
+            } else {
+              Posterurl = PosterUrl;
+            }
 
             return (
               <div
