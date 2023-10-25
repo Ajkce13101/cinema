@@ -1,48 +1,50 @@
-@property --gradient-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
+.filters {
+  color: black;
 
-:root {
-  --clr-1: #052b2f;
-  --clr-2: #073438;
-  --clr-3: #0e4b50;
-  --clr-4: #2d8f85;
-  --clr-5: #637c54;
-}
-.card {
-  background: var(--clr-2);
-  aspect-ratio: 1/1.5;
-  height: 60vh;
-  border-radius: 0.5rem;
-  position: relative;
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    background: linear-gradient(
-      var(--gradient-angle),
-      var(--clr-3),
-      var(--clr-4),
-      var(--clr-5)
-    );
-    inset: 0;
-    border-radius: inherit;
-    animation: rotation 20s linear infinite iteration-count direction fill-mode;
-  }
-
-  &::before {
-    filter: blur(3.5rem);
-  }
-}
-
-@keyframes rotation {
-  0% {
-    --gradient-angle: 0deg;
-  }
-  100% {
-    --gradient-angle: 360deg;
+  .react-select-container {
+    &.genresDD {
+      width: 100%;
+    }
+    &.sortbyDD {
+      width: 300px;
+      flex-shrink: 0;
+    }
+    .react-select__control {
+      border: 0;
+      outline: 0;
+      box-shadow: none;
+      background-color: var(--black-light);
+      border-radius: 20px;
+      .react-select__value-container {
+        .react-select__placeholder,
+        .react-select__input-container {
+          color: white;
+          margin: 0 10px;
+        }
+      }
+      .react-select__single-value {
+        color: white;
+      }
+      .react-select__multi-value {
+        background-color: var(--black3);
+        border-radius: 10px;
+        .react-select__multi-value__label {
+          color: white;
+        }
+        .react-select__multi-value__remove {
+          background-color: transparent;
+          color: white;
+          cursor: pointer;
+          &:hover {
+            color: var(--black-lighter);
+          }
+        }
+      }
+    }
+    .react-select__menu {
+      top: 40px;
+      margin: 0;
+      padding: 0;
+    }
   }
 }

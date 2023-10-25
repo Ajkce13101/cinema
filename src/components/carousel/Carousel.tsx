@@ -10,6 +10,8 @@ import { UseTvGenres } from "@/hooks/useTvGenres.tsx";
 import Genres from "../genres/Genres.tsx";
 import { useNavigate } from "react-router-dom";
 import PosterUrl from "../../assets/no-poster.png";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 interface Genre {
   id: number;
@@ -60,12 +62,20 @@ const Carousel = ({
 
   const skItem = () => {
     return (
-      <div className="skeletonItem">
-        <div className="posterBlock skeleton"></div>
-        <div className="textBlock skeleton">
-          <div className="title skeleton"></div>
-          <div className="date skeleton"></div>
-        </div>
+      <div className="w-[250px]">
+        <SkeletonTheme baseColor="#202020" highlightColor="#444">
+          <div className="posterBlock skeleton">
+            <Skeleton height={60} />
+          </div>
+          <div className="textBlock pt-2">
+            <div className="title skeleton">
+              <Skeleton />
+            </div>
+            <div className="date skeleton">
+              <Skeleton />
+            </div>
+          </div>
+        </SkeletonTheme>
       </div>
     );
   };
@@ -81,7 +91,7 @@ const Carousel = ({
         onClick={() => navigation("left")}
       />
       {isLoading ? (
-        <div className="loadingSkeleton">
+        <div className="skeletonItem flex gap-5">
           {skItem()}
           {skItem()}
           {skItem()}

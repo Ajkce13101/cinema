@@ -1,13 +1,14 @@
 import axios from "axios";
 
 import { useQuery } from "@tanstack/react-query";
+import { movieGenre } from "@/data/moviegenre";
 
-interface Genre {
+export interface Genres {
   id: number;
   name: string;
 }
-export interface result {
-  genres: Genre[];
+export interface result<T> {
+  genres: T[];
 }
 
 const axiosInstance = axios.create({
@@ -20,11 +21,12 @@ const axiosInstance = axios.create({
 });
 
 export const UseMovieGenres = () =>
-  useQuery<result, Error>({
+  useQuery<result<Genre>, Error>({
     queryKey: ["Moviegenres"],
     queryFn: () =>
       axiosInstance
         .get(`genre/movie/list`)
         .then((res) => res.data)
         .catch((error) => console.log(error)),
+    initialData: movieGenre,
   });
