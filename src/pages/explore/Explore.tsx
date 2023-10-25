@@ -25,11 +25,13 @@ const sortbyData = [
   { value: "primary_release_date.asc", label: "Release Date Ascending" },
   { value: "original_title.asc", label: "Title (A-Z)" },
 ];
-const Search = () => {
+const Explore = () => {
   const { type } = useParams();
+
   const [genre, setGenre] = useState<Genres[]>();
   const [genreValue, setGenreValue] = useState("");
   const [sort, setSort] = useState<{ value: string; label: string }>();
+  const [dataType, setDataType] = useState("");
 
   const {
     data,
@@ -40,11 +42,13 @@ const Search = () => {
     hasNextPage,
   } = useDiscoverMovie({
     type: type || "movie",
-    sort: sort,
+    sort: sort || { label: "Popularity desc", value: "popularity.desc" },
     genre: genreValue,
   });
 
-  const { data: genresData, isLoading: genreLoading } = UseMovieGenres();
+  const { data: genresData, isLoading: genreLoading } = UseMovieGenres({
+    mediatype: type || "movie",
+  });
 
   useEffect(() => {
     if (genre) {
@@ -54,9 +58,16 @@ const Search = () => {
     }
   }, [genre]);
 
+  useEffect(() => {
+    setGenre([]);
+    setGenreValue("");
+    setSort("");
+    setDataType(type);
+  }, [type]);
+
   const fetchMoviesCount =
     data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
-  console.log(fetchMoviesCount);
+
   return (
     <div className="max-container padding-x mt-36">
       <div className="flex justify-between ">
@@ -111,11 +122,14 @@ const Search = () => {
             return (
               <React.Fragment>
                 {page.results.map((movie) => {
-                  if (movie.media_type === "person") return;
                   if (movie.poster_path) {
                     return (
                       <>
-                        <MovieCard key={movie.id} item={movie}></MovieCard>
+                        <MovieCard
+                          key={movie.id}
+                          item={movie}
+                          Paramtype={type || "movie"}
+                        ></MovieCard>
                       </>
                     );
                   }
@@ -134,4 +148,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default Explore;

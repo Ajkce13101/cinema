@@ -29,18 +29,18 @@ import { ClipLoader } from "react-spinners";
 const DetailsPage = () => {
   const { id, type } = useParams();
 
+  const [movieType, setmovieType] = useState("movie");
+
   const allGenres: { [key: number]: Genre } = {};
-  const { data: movieGenres } = UseMovieGenres();
-  console.log(movieGenres);
+  const { data: movieGenres } = UseMovieGenres({ mediatype: movieType });
+
   const { data: tvGenres } = UseTvGenres();
-  console.log(tvGenres);
+
   const MergedGenres = [movieGenres, tvGenres];
-  console.log(MergedGenres);
+
   MergedGenres.map((data) => {
     return data?.genres.map((item) => (allGenres[item.id] = item));
   });
-
-  const [movieType, setmovieType] = useState("movie");
 
   useEffect(() => {
     if (type) {
@@ -62,7 +62,7 @@ const DetailsPage = () => {
         </div>
       );
     }
-    if (data) {
+    if (data?.genres) {
       return (
         <div className="max-container padding-x mt-20">
           {data?.backdrop_path && (
@@ -84,7 +84,7 @@ const DetailsPage = () => {
             <div>
               <h1 className="text-4xl pb-2">{data?.title}</h1>
               <p className="text-slate-400 pb-2">{data?.tagline}</p>
-              <Genres data={genreId || undefined} genres={allGenres}></Genres>
+              {/* <Genres data={genreId} genres={allGenres}></Genres> */}
               <div className="flex pt-6 pb-6 items-center gap-5">
                 <div className="bg-[#051325] rounded-full w-[80px]">
                   <CircularProgressbar

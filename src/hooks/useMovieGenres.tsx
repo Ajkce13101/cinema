@@ -2,6 +2,7 @@ import axios from "axios";
 
 import { useQuery } from "@tanstack/react-query";
 import { movieGenre } from "@/data/moviegenre";
+import { tvGenre } from "@/data/tvgenre";
 
 export interface Genres {
   id: number;
@@ -20,13 +21,13 @@ const axiosInstance = axios.create({
   },
 });
 
-export const UseMovieGenres = () =>
-  useQuery<result<Genre>, Error>({
-    queryKey: ["Moviegenres"],
+export const UseMovieGenres = ({ mediatype }: { mediatype: string }) =>
+  useQuery<result<Genres>, Error>({
+    queryKey: ["Genres", mediatype],
     queryFn: () =>
       axiosInstance
-        .get(`genre/movie/list`)
+        .get(`genre/${mediatype}/list`)
         .then((res) => res.data)
         .catch((error) => console.log(error)),
-    initialData: movieGenre,
+    initialData: mediatype === "movie" ? movieGenre : tvGenre,
   });

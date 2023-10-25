@@ -10,11 +10,10 @@ import { UseMovieGenres } from "@/hooks/useMovieGenres";
 import { Genre } from "@/hooks/useMovieDetails";
 import { UseTvGenres } from "@/hooks/useTvGenres";
 
-const MovieCard = ({ item, }: { item: Movie }) => {
+const MovieCard = ({ item, Paramtype }: { item: Movie; Paramtype: string }) => {
   const navigate = useNavigate();
   const gotoDetails = ({ id, type }: { id: number; type: string }) => {
     navigate(`/details/${id}/${type}`);
-    return { id, type };
   };
   let Posterurl = "";
   if (item.poster_path) {
@@ -24,7 +23,7 @@ const MovieCard = ({ item, }: { item: Movie }) => {
   }
 
   const allGenres: { [key: number]: Genre } = {};
-  const { data: movieGenres } = UseMovieGenres();
+  const { data: movieGenres } = UseMovieGenres({ mediatype: "movie" });
 
   const { data: tvGenres } = UseTvGenres();
 
@@ -37,7 +36,12 @@ const MovieCard = ({ item, }: { item: Movie }) => {
     <div
       className="w-[230px] rounded-lg "
       key={item.id}
-      onClick={() => gotoDetails({ id: item.id, type: item.media_type })}
+      onClick={() =>
+        gotoDetails({
+          id: item.id,
+          type: item.media_type ? item.media_type : Paramtype,
+        })
+      }
     >
       <div className="posterBlock">
         <Img src={Posterurl} className="rounded-lg"></Img>

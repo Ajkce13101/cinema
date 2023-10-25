@@ -9,9 +9,6 @@ const Genres = ({
   data: number[] | undefined;
   genres: { [key: number]: Genre };
 }) => {
-  console.log(data);
-  console.log(genres);
-
   if (data && data?.length > 1) {
     return (
       <div className="genres">

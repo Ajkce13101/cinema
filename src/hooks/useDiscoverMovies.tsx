@@ -52,7 +52,7 @@ export const useDiscoverMovie = ({
   useInfiniteQuery<Data, Error>({
     queryKey: ["Discover", type, sort, genre],
     queryFn: ({ pageParam = 1 }) => {
-      console.log("PageParam" + pageParam);
+ 
       return axiosInstance
         .get(
           `/discover/${type}?page=${pageParam}&sort_by=${sort.value}${
@@ -63,7 +63,7 @@ export const useDiscoverMovie = ({
         .catch((error) => console.log(error));
     },
     getNextPageParam: (lastPage, allPages) => {
-      console.log(allPages);
+
       return allPages.length + 1;
     },
   });

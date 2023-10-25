@@ -44,7 +44,11 @@ const Search = () => {
                   if (movie.poster_path) {
                     return (
                       <>
-                        <MovieCard key={movie.id} item={movie}></MovieCard>
+                        <MovieCard
+                          key={movie.id}
+                          item={movie}
+                          Paramtype={movie.media_type}
+                        ></MovieCard>
                       </>
                     );
                   }

@@ -44,12 +44,12 @@ const Carousel = ({
   };
 
   const allGenres: { [key: number]: Genre } = {};
-  const { data: movieGenres } = UseMovieGenres();
-  console.log(movieGenres);
+  const { data: movieGenres } = UseMovieGenres({ mediatype: type });
+
   const { data: tvGenres } = UseTvGenres();
-  console.log(tvGenres);
+
   const MergedGenres = [movieGenres, tvGenres];
-  console.log(MergedGenres);
+
   MergedGenres.map((data) => {
     return data?.genres.map((item) => (allGenres[item.id] = item));
   });
