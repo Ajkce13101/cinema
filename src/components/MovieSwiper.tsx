@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 
 import { Autoplay, EffectCoverflow } from "swiper/modules";
 import { Movie } from "@/hooks/useUpcomingMovieList";
+import Img from "./LazyLoad/Img";
 
 const MovieSwiper = ({
   handleSwiper,
@@ -41,10 +42,9 @@ const MovieSwiper = ({
           className="bg-cover bg-center w-[130px] h-[160px]"
           key={item.id}
         >
-          <img
+          <Img
             className="block w-[130px] h-[160px]"
             src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
-            alt=""
             onClick={() => handleSwiper(item.id)}
           />
         </SwiperSlide>

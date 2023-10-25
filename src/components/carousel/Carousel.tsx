@@ -62,10 +62,10 @@ const Carousel = ({
 
   const skItem = () => {
     return (
-      <div className="w-[250px]">
+      <div className="min-w-[190px] ">
         <SkeletonTheme baseColor="#202020" highlightColor="#444">
-          <div className="posterBlock skeleton">
-            <Skeleton height={60} />
+          <div className="posterBlock">
+            <Skeleton height={260} />
           </div>
           <div className="textBlock pt-2">
             <div className="title skeleton">
@@ -91,7 +91,9 @@ const Carousel = ({
         onClick={() => navigation("left")}
       />
       {isLoading ? (
-        <div className="skeletonItem flex gap-5">
+        <div className="skeletonItem flex gap-5 overflow-hidden">
+          {skItem()}
+          {skItem()}
           {skItem()}
           {skItem()}
           {skItem()}

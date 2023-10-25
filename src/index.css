@@ -96,7 +96,7 @@ body {
       var(--primary),
       transparent
     );
-    z-index: 1000;
+    z-index: 800;
   }
 
   .input {
@@ -159,7 +159,7 @@ body {
       hsl(13, 100%, 50%),
       transparent
     );
-    z-index: 1000;
+    z-index: 800;
   }
 
   .play-icon {
