@@ -35,7 +35,7 @@ const MovieSwiper = ({
       }}
       loop={true}
       modules={[Autoplay, EffectCoverflow]}
-      className="absolute bottom-5 left-0 right-0 mx-auto w-[60vw] bg-opacity-50 bg-black , backdrop-blur-xl shadow-2xl shadow-white px-4 py-6  z-50"
+      className="absolute bottom-5 left-0 right-0 mx-auto w-[60vw] bg-opacity-50 bg-black , backdrop-blur-xl shadow-2xl shadow-white px-4 py-6  z-50 hidden 2xl:block"
     >
       {results.map((item) => (
         <SwiperSlide
