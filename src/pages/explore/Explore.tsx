@@ -70,11 +70,11 @@ const Explore = () => {
 
   return (
     <div className="max-container padding-x mt-36">
-      <div className="flex justify-between ">
+      <div className="flex justify-between max-lg:flex-col max-md:gap-10">
         <h1 className="font-bold text-3xl">
           Explore <span>{type === "movie" ? "Movies" : "Tv Shows"}</span>
         </h1>
-        <div className="flex filters gap-10">
+        <div className="flex filters gap-10 max-md:flex-col max-md:gap-2 ">
           <div>
             {!genreLoading && genresData?.genres && (
               <Select
@@ -117,7 +117,7 @@ const Explore = () => {
             <ClipLoader color="white"></ClipLoader>
           </div>
         )}
-        <div className="flex flex-wrap justify-between gap-10 pt-[25px] ">
+        <div className="flex flex-wrap justify-between md:gap-10 pt-[25px] ">
           {data?.pages.map((page) => {
             return (
               <React.Fragment>

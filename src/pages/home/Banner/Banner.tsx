@@ -12,7 +12,7 @@ const Banner = () => {
   const { data, isLoading } = UseUpcomingMovieList();
   let newData = [];
   if (!isLoading && data?.results.length > 0) {
-    newData = data?.results.slice(0, 6);
+    newData = data?.results.slice(0, 8);
   }
   const [activeMovieIndex, setActiveMovieIndex] = useState(0);
 
@@ -59,9 +59,9 @@ const Banner = () => {
           ></Slider>
         )}
         {/* Carosoul Containwer */}
-        {data && (
+        {/* {data && (
           <MovieSwiper handleSwiper={handleSwiper} {...data}></MovieSwiper>
-        )}
+        )} */}
       </div>
     );
   }

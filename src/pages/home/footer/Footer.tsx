@@ -11,15 +11,17 @@ import {
 const Footer = () => {
   return (
     <div className="max-container padding-x ">
-      <div className="mt-[150px] flex justify-center items-center gap-8">
+      <div className="mt-[150px] flex justify-center items-center gap-8 max-sm:text-sm max-sm:flex-wrap ">
         <div className="hover:text-[#da2f68] cursor-pointer">Terms Of Use</div>
-        <div className="hover:text-[#da2f68] cursor-pointer">Privacy-Policy</div>
+        <div className="hover:text-[#da2f68] cursor-pointer">
+          Privacy-Policy
+        </div>
         <div className="hover:text-[#da2f68] cursor-pointer">About</div>
         <div className="hover:text-[#da2f68] cursor-pointer">Blog</div>
         <div className="hover:text-[#da2f68] cursor-pointer">FAQ</div>
       </div>
       <div className="text-center flex justify-center ">
-        <div className="w-[800px] text-slate-500  text-sm mt-10 ">
+        <div className="w-[800px] text-slate-500  text-sm mt-10 max-sm:text-[12px]">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi quo
           laboriosam praesentium ratione amet dignissimos, voluptatibus ex quam
           fugit nam dolor officia alias eveniet quibusdam expedita eos optio

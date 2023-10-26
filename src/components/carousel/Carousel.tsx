@@ -112,12 +112,13 @@ const Carousel = ({
 
             return (
               <div
-                className="carouselItem"
+                className="carouselItem "
                 key={item.id}
                 onClick={() => gotoDetails({ id: item.id })}
+                
               >
-                <div className="posterBlock">
-                  <Img src={Posterurl}></Img>
+                <div className="posterBlock ">
+                  <Img src={Posterurl} className=""></Img>
                   <CircleRating rating={item.vote_average}></CircleRating>
                   <Genres
                     data={item.genre_ids.slice(0, 2)}

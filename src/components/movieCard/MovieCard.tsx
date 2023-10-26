@@ -34,7 +34,7 @@ const MovieCard = ({ item, Paramtype }: { item: Movie; Paramtype: string }) => {
   });
   return (
     <div
-      className="w-[230px] rounded-lg "
+      className="w-[16%] max-xl:w-[20%]  max-lg:w-[25%] max-md:w-[32%] max-sm:w-[45%] max-sm:pb-[30px] rounded-lg "
       key={item.id}
       onClick={() =>
         gotoDetails({
@@ -47,10 +47,10 @@ const MovieCard = ({ item, Paramtype }: { item: Movie; Paramtype: string }) => {
         <Img src={Posterurl} className="rounded-lg"></Img>
       </div>
       <div className="textBlock">
-        <div className="title text-xl font-[700]  pt-2">
+        <div className="title text-xl font-[700]  pt-2 max-lg:text-lg max-sm:text-[16px]">
           {item.title || item.name}
         </div>
-        <div className="text-slate-500 text-[15px] font-[600]">
+        <div className="text-slate-500 text-[15px] font-[600] max-lg:text-[14px] max-sm:text-[13px]">
           {moment(item.release_date).format("MMM D, Y")}
         </div>
       </div>

@@ -58,7 +58,7 @@ const DetailsPage = () => {
     if (isLoading) {
       return (
         <div className="h-[100vh] flex items-center justify-center">
-          <ClipLoader></ClipLoader>
+          <ClipLoader color="white"></ClipLoader>
         </div>
       );
     }
@@ -75,6 +75,7 @@ const DetailsPage = () => {
 
           <div className="flex pt-[45px] gap-20">
             <div className="">
+              
               <img
                 src={`https://image.tmdb.org/t/p/original/${data?.poster_path}`}
                 alt=""

@@ -18,6 +18,7 @@ const Img = ({
       effect="blur"
       src={src}
       onClick={onClick}
+      
     />
   );
 };

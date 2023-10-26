@@ -37,7 +37,7 @@ const MovieSwiper = ({
       modules={[Autoplay, EffectCoverflow]}
       className="absolute bottom-5 left-0 right-0 mx-auto w-[60vw] bg-opacity-50 bg-black , backdrop-blur-xl shadow-2xl shadow-white px-4 py-6  z-50 hidden 2xl:block"
     >
-      {results.map((item) => (
+      {results.map((item, index) => (
         <SwiperSlide
           className="bg-cover bg-center w-[130px] h-[160px]"
           key={item.id}
@@ -45,7 +45,7 @@ const MovieSwiper = ({
           <Img
             className="block w-[130px] h-[160px]"
             src={`https://image.tmdb.org/t/p/original/${item.poster_path}`}
-            onClick={() => handleSwiper(item.id)}
+            onClick={() => handleSwiper(index)}
           />
         </SwiperSlide>
       ))}

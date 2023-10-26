@@ -30,7 +30,7 @@ const MovieList = ({
         />
 
         <div className="max-container padding-x  absolute top-0 bottom-0 h-full left-0 right-0 z-50">
-          <div className="grid grid-cols-2 h-full items-center justify-center left-0 right-0 mx-auto">
+          <div className="grid grid-cols-2 h-full items-center justify-center left-0 right-0 mx-auto max-lg:grid-cols-1">
             <div
               className={`relative max-w-[580px] transform scale-0 transition z-1000 items-center ${
                 isActive && "opacity-100 scale-100"
@@ -45,7 +45,7 @@ const MovieList = ({
                   className="max-w-[150px] lg:w-[120px] mb-5"
                 />
               )}
-              <h4 className="font-medium text-3xl lg:text-xl ">
+              <h4 className="font-medium text-3xl lg:text-xl max-md:text-[17px] max-md:font-bold">
                 <span className="pr-3 border-r-2  border-white ">
                   {data?.release_date}
                 </span>
@@ -60,8 +60,10 @@ const MovieList = ({
                 ))}
               </h4>
 
-              <h3 className="mt-5 text-lg font-bold">{data?.tagline}</h3>
-              <p className="line-clamp-3">{data?.overview}</p>
+              <h3 className="mt-5 text-lg font-bold max-md:text-md">
+                {data?.tagline}
+              </h3>
+              <p className="line-clamp-3 max-md:text-sm">{data?.overview}</p>
               {/* {data ? (
               <TextTruncate
                 line={4}
@@ -83,7 +85,7 @@ const MovieList = ({
                 </a>
               </div>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center max-lg:hidden">
               <div
                 className={`relative scale-0 transition z-50 opacity-0 ${
                   isActive && "scale-100 opacity-100"

@@ -73,9 +73,10 @@
       }
     }
   }
+
   .carouselItems {
     display: flex;
-    gap: 10px;
+    gap: 30px;
     overflow-y: hidden;
     margin-right: -20px;
     margin-left: -20px;
@@ -96,14 +97,20 @@
       padding: 0;
     }
     .carouselItem {
-      width: 80px;
+      width: 130px;
       cursor: pointer;
+
       @include md {
         width: calc(25% - 45px);
       }
+
       @include lg {
-        width: calc(20% - 110px);
+        width: calc(25% - 90px);
       }
+      @include xl {
+        width: calc(25% - 110px);
+      }
+
       flex-shrink: 0;
       .posterBlock {
         position: relative;
