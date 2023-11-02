@@ -1,8 +1,6 @@
 import { UseMovieDetails } from "@/hooks/useMovieDetails";
 import { PlayCircle } from "lucide-react";
 import Skeleton from "react-loading-skeleton";
-import TextTruncate from "react-text-truncate";
-import Truncate from "react-truncate";
 import GlobalLoader from "./GlobalLoader";
 
 const MovieList = ({

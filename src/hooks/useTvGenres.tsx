@@ -18,7 +18,7 @@ const axiosInstance = axios.create({
 });
 
 export const UseTvGenres = () =>
-  useQuery<result, Error>({
+  useQuery<result<Genre>, Error>({
     queryKey: ["Tvgenres"],
     queryFn: () =>
       axiosInstance

@@ -1,18 +1,17 @@
 import MovieCard from "@/components/movieCard/MovieCard";
 import { useSearchMovie } from "@/hooks/useSearchMovie";
-import { useParams } from "react-router-dom";
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { ClipLoader } from "react-spinners";
-import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { useParams } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 
 const Search = () => {
   const { searchQuery } = useParams();
 
   const {
     data,
-    error,
+   
     isLoading,
     fetchNextPage,
     isFetchingNextPage,

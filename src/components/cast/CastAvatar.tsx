@@ -1,5 +1,4 @@
 import { Cast } from "@/hooks/useMovieDetails";
-import React from "react";
 import DefaultAvatar from "../../assets/avatar.png";
 
 const CastAvatar = ({ people }: { people: Cast }) => {

@@ -2,9 +2,7 @@
 // import { UseMovieList } from "../hooks/useMovieList";
 import GlobalLoader from "@/components/GlobalLoader";
 import MovieList from "@/components/MovieList";
-import MovieSwiper from "@/components/MovieSwiper";
 import { UseUpcomingMovieList } from "@/hooks/useUpcomingMovieList";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import Slider from "./Slider";
 
@@ -16,9 +14,7 @@ const Banner = () => {
   }
   const [activeMovieIndex, setActiveMovieIndex] = useState(0);
 
-  const handleSwiper = (id: number) => {
-    setActiveMovieIndex(id);
-  };
+ 
   useEffect(() => {
     const effect = setTimeout(() => {
       setActiveMovieIndex((prev) =>

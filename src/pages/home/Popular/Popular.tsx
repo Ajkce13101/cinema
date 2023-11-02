@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import SwitchTabs from "../../../components/switchTabs/SwitchTabs";
-import Carousel from "../../../components/carousel/Carousel";
 import { UsePopularMovieLists } from "@/hooks/usePopularMovies";
+import { useState } from "react";
+import Carousel from "../../../components/carousel/Carousel";
+import SwitchTabs from "../../../components/switchTabs/SwitchTabs";
 
 const Popular = () => {
   const [type, setType] = useState("movie");

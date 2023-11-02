@@ -1,14 +1,12 @@
+import { Genre } from "@/hooks/useMovieDetails";
+import { UseMovieGenres } from "@/hooks/useMovieGenres";
+import { UseTvGenres } from "@/hooks/useTvGenres";
 import { Movie } from "@/hooks/useUpcomingMovieList";
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
-import Img from "../LazyLoad/Img";
-import CircleRating from "../circleRating/circleRating";
-import Genres from "../genres/Genres";
-import "./movieCard.scss";
 import PosterUrl from "../../assets/no-poster.png";
-import { UseMovieGenres } from "@/hooks/useMovieGenres";
-import { Genre } from "@/hooks/useMovieDetails";
-import { UseTvGenres } from "@/hooks/useTvGenres";
+import Img from "../LazyLoad/Img";
+import "./movieCard.scss";
 
 const MovieCard = ({ item, Paramtype }: { item: Movie; Paramtype: string }) => {
   const navigate = useNavigate();

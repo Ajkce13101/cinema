@@ -1,8 +1,7 @@
-import React from "react";
+import ScrollToTop from "@/components/ScrollToTop";
 import { Outlet } from "react-router-dom";
 import Header from "./home/Header/Header";
 import Footer from "./home/footer/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
 
 const HomeLayout = () => {
   return (

@@ -1,17 +1,17 @@
-import { Movie } from "@/hooks/useUpcomingMovieList.tsx";
-import { useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import "./carousel.scss";
-import Img from "../LazyLoad/Img";
-import moment from "moment";
-import CircleRating from "../circleRating/circleRating.tsx";
 import { UseMovieGenres } from "@/hooks/useMovieGenres.tsx";
 import { UseTvGenres } from "@/hooks/useTvGenres.tsx";
-import Genres from "../genres/Genres.tsx";
-import { useNavigate } from "react-router-dom";
-import PosterUrl from "../../assets/no-poster.png";
+import { Movie } from "@/hooks/useUpcomingMovieList.tsx";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import moment from "moment";
+import { useRef } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { useNavigate } from "react-router-dom";
+import PosterUrl from "../../assets/no-poster.png";
+import Img from "../LazyLoad/Img";
+import CircleRating from "../circleRating/CircleRating.tsx";
+import Genres from "../genres/Genres.tsx";
+import "./carousel.scss";
 
 interface Genre {
   id: number;
@@ -115,7 +115,6 @@ const Carousel = ({
                 className="carouselItem "
                 key={item.id}
                 onClick={() => gotoDetails({ id: item.id })}
-                
               >
                 <div className="posterBlock ">
                   <Img src={Posterurl} className=""></Img>

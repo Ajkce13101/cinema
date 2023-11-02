@@ -1,6 +1,4 @@
-import React, { useState } from "react";
 
-import { UseTrendingMovieList } from "@/hooks/useTrendingMovie";
 
 import Carousel from "@/components/carousel/Carousel";
 import { useSimiliarMovies } from "@/hooks/useSimiliarMovies";

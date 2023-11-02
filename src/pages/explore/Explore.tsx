@@ -1,17 +1,18 @@
 import MovieCard from "@/components/movieCard/MovieCard";
-import { useSearchMovie } from "@/hooks/useSearchMovie";
-import { useParams } from "react-router-dom";
-import React from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { ClipLoader } from "react-spinners";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 import { useDiscoverMovie } from "@/hooks/useDiscoverMovies";
-import { useState, useEffect } from "react";
+import { UseMovieGenres } from "@/hooks/useMovieGenres";
+import React, { useEffect, useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
+import "react-loading-skeleton/dist/skeleton.css";
+import { useParams } from "react-router-dom";
 import Select from "react-select";
+import { ClipLoader } from "react-spinners";
 import "./explore.scss";
-import { Genres, UseMovieGenres } from "@/hooks/useMovieGenres";
-import { Genre } from "@/hooks/useMovieDetails";
+
+interface Genres {
+  id: number;
+  name: string;
+}
 
 const sortbyData = [
   { value: "popularity.desc", label: "Popularity Descending" },
@@ -30,21 +31,14 @@ const Explore = () => {
 
   const [genre, setGenre] = useState<Genres[]>();
   const [genreValue, setGenreValue] = useState("");
-  const [sort, setSort] = useState<{ value: string; label: string }>();
-  const [dataType, setDataType] = useState("");
+  const [sort, setSort] = useState<{ value: string; label: string } | string>();
 
-  const {
-    data,
-    error,
-    isLoading,
-    fetchNextPage,
-    isFetchingNextPage,
-    hasNextPage,
-  } = useDiscoverMovie({
-    type: type || "movie",
-    sort: sort || { label: "Popularity desc", value: "popularity.desc" },
-    genre: genreValue,
-  });
+  const { data, isLoading, fetchNextPage, isFetchingNextPage, hasNextPage } =
+    useDiscoverMovie({
+      type: type || "movie",
+      sort: { label: "Popularity desc", value: "popularity.desc" },
+      genre: parseInt(genreValue),
+    });
 
   const { data: genresData, isLoading: genreLoading } = UseMovieGenres({
     mediatype: type || "movie",
@@ -62,7 +56,6 @@ const Explore = () => {
     setGenre([]);
     setGenreValue("");
     setSort("");
-    setDataType(type);
   }, [type]);
 
   const fetchMoviesCount =
@@ -88,7 +81,9 @@ const Explore = () => {
                 placeholder="Select genres"
                 className="react-select-container genresDD"
                 classNamePrefix="react-select"
-                onChange={(selectedItems) => setGenre(selectedItems)}
+                onChange={(selectedItems) =>
+                  setGenre(selectedItems.map((item) => item as Genres))
+                }
               />
             )}
           </div>

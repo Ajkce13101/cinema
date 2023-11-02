@@ -11,28 +11,24 @@ import "swiper/css/pagination";
 import { FreeMode, Mousewheel } from "swiper/modules";
 
 import CastAvatar from "@/components/cast/CastAvatar";
-import Genres from "@/components/genres/Genres";
 import { Genre, UseMovieDetails } from "@/hooks/useMovieDetails";
 import { UseMovieGenres } from "@/hooks/useMovieGenres";
 import { UseTvGenres } from "@/hooks/useTvGenres";
 import { PlayCircleIcon } from "lucide-react";
 import moment from "moment";
-import { useEffect, useState } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { useParams } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 import Recommendations from "./RecommendedMovies";
 import SimiliarMovies from "./SimiliarMovies";
 import "./details.scss";
 import Videos from "./videos/Videos";
-import { ClipLoader } from "react-spinners";
 
 const DetailsPage = () => {
   const { id, type } = useParams();
 
-  const [movieType, setmovieType] = useState("movie");
-
   const allGenres: { [key: number]: Genre } = {};
-  const { data: movieGenres } = UseMovieGenres({ mediatype: movieType });
+  const { data: movieGenres } = UseMovieGenres({ mediatype: type });
 
   const { data: tvGenres } = UseTvGenres();
 
@@ -42,16 +38,10 @@ const DetailsPage = () => {
     return data?.genres.map((item) => (allGenres[item.id] = item));
   });
 
-  useEffect(() => {
-    if (type) {
-      setmovieType(type);
-    }
-  }, []);
-
   if (id) {
     const { data, isLoading } = UseMovieDetails({
       movie_id: parseInt(id),
-      type: movieType,
+      type: type,
     });
 
     const genreId = data?.genres.map((item) => item.id);
@@ -75,7 +65,6 @@ const DetailsPage = () => {
 
           <div className="flex pt-[45px] gap-20">
             <div className="">
-              
               <img
                 src={`https://image.tmdb.org/t/p/original/${data?.poster_path}`}
                 alt=""
@@ -86,7 +75,7 @@ const DetailsPage = () => {
               <h1 className="text-4xl pb-2">{data?.title}</h1>
               <p className="text-slate-400 pb-2">{data?.tagline}</p>
               {/* <Genres data={genreId} genres={allGenres}></Genres> */}
-              <div className="flex pt-6 pb-6 items-center gap-5">
+              <div className="flex pt-6 pb-6 items-center gap-5 ">
                 <div className="bg-[#051325] rounded-full w-[80px]">
                   <CircularProgressbar
                     value={data?.vote_average}
@@ -169,13 +158,13 @@ const DetailsPage = () => {
           </div>
 
           {/* Videos Arrray */}
-          <Videos type={movieType} id={parseInt(id)}></Videos>
+          <Videos type={type} id={parseInt(id)}></Videos>
 
           {/* Similiar Movies */}
-          <SimiliarMovies type={movieType} id={parseInt(id)}></SimiliarMovies>
+          <SimiliarMovies type={type} id={parseInt(id)}></SimiliarMovies>
 
           {/* Recommendations */}
-          <Recommendations type={movieType} id={parseInt(id)}></Recommendations>
+          <Recommendations type={type} id={parseInt(id)}></Recommendations>
         </div>
       );
     }

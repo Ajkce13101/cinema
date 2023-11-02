@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import SwitchTabs from "../../../components/switchTabs/SwitchTabs";
 
-import Carousel from "../../../components/carousel/Carousel";
 import { UseTrendingMovieList } from "@/hooks/useTrendingMovie";
+import Carousel from "../../../components/carousel/Carousel";
 
 const Trending = () => {
   const [timeFrame, setTimeFrame] = useState("day");

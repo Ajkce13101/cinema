@@ -1,13 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/home/Home";
 import "./App.css";
 import { ThemeProvider } from "./components/theme-provider";
 import DetailsPage from "./pages/details/DetailsPage";
-import Explore from "./pages/explore/Explore";
-import HomeLayout from "./pages/HomeLayout";
 import Error from "./pages/Error";
+import Explore from "./pages/explore/Explore";
+import Home from "./pages/home/Home";
+import HomeLayout from "./pages/HomeLayout";
 import Search from "./pages/search/Search";
-import ScrollToTop from "./components/ScrollToTop";
 
 const router = createBrowserRouter([
   {

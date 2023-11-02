@@ -1,6 +1,5 @@
-import React from "react";
-import "./genres.scss";
 import { Genre } from "@/hooks/useMovieDetails";
+import "./genres.scss";
 
 const Genres = ({
   data,
