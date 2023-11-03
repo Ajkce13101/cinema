@@ -32,12 +32,14 @@ const Explore = () => {
   const [genre, setGenre] = useState<Genres[]>();
   const [genreValue, setGenreValue] = useState("");
   const [sort, setSort] = useState<{ value: string; label: string } | string>();
+  const [genreArray, setGenreArray] = useState<number[]>();
 
   const { data, isLoading, fetchNextPage, isFetchingNextPage, hasNextPage } =
     useDiscoverMovie({
       type: type || "movie",
       sort: { label: "Popularity desc", value: "popularity.desc" },
-      genre: parseInt(genreValue),
+      genre: genreValue,
+      genreArray: genreArray,
     });
 
   const { data: genresData, isLoading: genreLoading } = UseMovieGenres({
@@ -47,6 +49,7 @@ const Explore = () => {
   useEffect(() => {
     if (genre) {
       const genreNames = genre.map((genr) => genr.id);
+      setGenreArray(genreNames);
       const csvGenres = genreNames.join("%2C").toLowerCase();
       setGenreValue(csvGenres);
     }
@@ -115,7 +118,7 @@ const Explore = () => {
         <div className="flex flex-wrap justify-between md:gap-10 pt-[25px] ">
           {data?.pages.map((page) => {
             return (
-              <React.Fragment>
+              <React.Fragment key={page.page}>
                 {page.results.map((movie) => {
                   if (movie.poster_path) {
                     return (

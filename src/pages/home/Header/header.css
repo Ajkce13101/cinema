@@ -3,9 +3,11 @@ header {
   top: 0;
   left: 0;
   width: 100vw;
-  padding: 30px;
+  padding-top: 5px;
   transition: 0.5s;
   z-index: 1000;
+  /* background: rgba(0, 0, 0, 0.6); */
+  
 }
 header.scrolled {
   background: rgba(0, 0, 0, 0.6);
@@ -13,7 +15,7 @@ header.scrolled {
 }
 
 .logo {
-  font-family: "Racing Sans One", cursive;
+  
   font-size: 35px;
   color: white;
   letter-spacing: 2px;

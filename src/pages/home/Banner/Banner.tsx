@@ -14,7 +14,6 @@ const Banner = () => {
   }
   const [activeMovieIndex, setActiveMovieIndex] = useState(0);
 
- 
   useEffect(() => {
     const effect = setTimeout(() => {
       setActiveMovieIndex((prev) =>
@@ -38,7 +37,7 @@ const Banner = () => {
           return (
             <>
               <MovieList
-                key={item.id}
+                key={index}
                 movie_id={item.id}
                 isActive={activeMovieIndex === index}
               ></MovieList>

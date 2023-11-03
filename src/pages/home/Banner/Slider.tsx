@@ -17,6 +17,7 @@ const Slider = ({
         {newData.map((item, index) => {
           return (
             <span
+              key={item.id}
               onClick={() => setActiveMovieIndex(index)}
               className={`h-3 w-3 rounded-full bg-white z-50 transition-all duration-500 cursor-pointer ${
                 activeMovieIndex === index ? "bg-blue-700 w-5" : ""

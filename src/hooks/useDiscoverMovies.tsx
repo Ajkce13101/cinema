@@ -44,26 +44,26 @@ export const useDiscoverMovie = ({
     value: "popularity.desc",
   },
   genre,
+  genreArray,
 }: {
   type: string;
   sort?: { label: string; value: string };
-  genre?: number;
+  genre?: string;
+  genreArray: number[];
 }) =>
   useInfiniteQuery<Data, Error>({
-    queryKey: ["Discover", type, sort, genre],
+    queryKey: ["Discover", type, sort, genreArray],
     queryFn: ({ pageParam = 1 }) => {
- 
       return axiosInstance
         .get(
-          `/discover/${type}?page=${pageParam}&sort_by=${sort.value}${
-            genre && `&with_genres=${genre}`
+          `/discover/${type}?page=${pageParam}&sort_by=${sort.value}&${
+            genre && `with_genres=${genre}`
           }`
         )
         .then((res) => res.data)
         .catch((error) => console.log(error));
     },
     getNextPageParam: (lastPage, allPages) => {
-
       return allPages.length + 1;
     },
   });
