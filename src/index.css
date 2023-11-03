@@ -180,6 +180,10 @@ body {
     border-radius: 8px;
     padding: 6px 15px;
   }
+  .gradient-btn-rounded {
+    background-image: linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%);
+    border-radius: 50%;
+  }
   .gradient-btn:hover {
     background-image: linear-gradient(98.37deg, #eb9603e7 0.99%, #a71d4b 100%);
   }

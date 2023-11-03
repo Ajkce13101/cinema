@@ -1,5 +1,5 @@
 import { UseMovieDetails } from "@/hooks/useMovieDetails";
-import { PlayCircle } from "lucide-react";
+import { Bookmark, HeartIcon, PlayCircle, SaveIcon } from "lucide-react";
 import Skeleton from "react-loading-skeleton";
 import GlobalLoader from "./GlobalLoader";
 
@@ -74,13 +74,13 @@ const MovieList = ({
               <p>Loading</p>
             )} */}
 
-              <div>
-                <a
-                  href="#"
-                  className="relative inline-flex items-center gap-3 mr-4 bg-primary text-white py-1 px-4 text-lg font-bold uppercase transition-all cursor-pointer border-none hover:text-primary hover:bg-white hover:cursor-pointer"
-                >
-                  Button
-                </a>
+              <div className="flex gap-3">
+                <div className="rounded-full gradient-btn-rounded inline-flex p-1.5 mt-3">
+                  <HeartIcon className=""></HeartIcon>
+                </div>
+                <div className="rounded-full gradient-btn-rounded inline-flex p-1.5 mt-3">
+                  <Bookmark></Bookmark>
+                </div>
               </div>
             </div>
             <div className="flex flex-col items-center max-lg:hidden">
