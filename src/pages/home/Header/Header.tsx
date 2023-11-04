@@ -75,19 +75,19 @@ const Header = () => {
       </div>
 
       <div
-        className={` max-container padding-x lg:hidden pt-2 transition-all ease-in-out ${
+        className={` max-container padding-x lg:hidden pt-3 transition-all ease-in-out ${
           isNavOpen ? "visible " : "hidden"
         }`}
       >
         <ul
-          className="flex flex-col gap-2"
+          className="flex flex-col gap-3 text-lg"
           onClick={() => setIsNavOpen(!isNavOpen)}
         >
           {navListData.map((item) => (
             <Navitem key={item.id} {...item}></Navitem>
           ))}
         </ul>
-        <div className="pt-3 pb-5">
+        <div className="pt-4 pb-6">
           <SearchBar
             mobile={true}
             setIsNavOpen={setIsNavOpen}
