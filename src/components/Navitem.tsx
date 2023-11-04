@@ -14,13 +14,15 @@ const Navitem = ({ name, link }: { name: string; link: string }) => {
                   "linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
-                fontWeight: ''
+                fontWeight: "",
               }
             : {}
         }
         // className="hover:text-primary "
         className={({ isActive }) =>
-          isActive ? "custom-gradient-text" : "hover:custom-gradient-text"
+          isActive
+            ? "custom-gradient-text "
+            : "hover:custom-gradient-text "
         }
       >
         <span className="font-bold">{name}</span>
