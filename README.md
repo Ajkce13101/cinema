@@ -53,9 +53,13 @@
 
 ![Contact Me ](/.github/images/img8.png "Contact Me")
 
+![Contact Me ](/.github/images/img9.png "Contact Me")
+
+![Contact Me ](/.github/images/img10.png "Contact Me")
+
 ## :gear: Tech Stack
 
-[![React JS](https://skillicons.dev/icons?i=react "React JS")](https://react.dev/ "React JS") [![Next JS](https://skillicons.dev/icons?i=vite "Next JS")](https://vitejs.dev/ "Next JS") [![JavaScript](https://skillicons.dev/icons?i=js "JavaScript")](https://developer.mozilla.org/en-US/docs/Web/JavaScript "JavaScript") [![Tailwind CSS](https://skillicons.dev/icons?i=tailwind "Tailwind CSS")](https://tailwindcss.com/ "Tailwind CSS") [![Netlify](https://skillicons.dev/icons?i=netlify "Netlify")](https://netlify.app/ "Netlify")
+[![React JS](https://skillicons.dev/icons?i=react "React JS")](https://react.dev/ "React JS") [![Typescript](https://skillicons.dev/icons?i=typescript "Typescript")](https://www.typescriptlang.org/ "Typescript") [![Vite JS](https://skillicons.dev/icons?i=vite "Vite JS")](https://vitejs.dev/ "Vite JS") [![JavaScript](https://skillicons.dev/icons?i=js "JavaScript")](https://developer.mozilla.org/en-US/docs/Web/JavaScript "JavaScript") [![Tailwind CSS](https://skillicons.dev/icons?i=tailwind "Tailwind CSS")](https://tailwindcss.com/ "Tailwind CSS") [![Netlify](https://skillicons.dev/icons?i=netlify "Netlify")](https://netlify.app/ "Netlify")
 
 ## :gem: Acknowledgements
 
@@ -63,15 +67,14 @@ Useful resources and dependencies that are used in My Portfolio.
 
 ### Production Dependencies
 
-- [vite](https://www.npmjs.com/package/vite): 13.4.3
-- [framer-motion](https://www.npmjs.com/package/framer-motion): ^10.12.16
+- [vite](https://www.npmjs.com/package/vite): 4.4.5
+- [typescript](https://www.npmjs.com/package/typescript): ^5.3.3
 - [react](https://www.npmjs.com/package/react): 18.2.0
-- [react-srcoll](https://www.npmjs.com/package/react-scroll): ^6.4.2
-- [react-dom](https://www.npmjs.com/package/react-dom): 18.2.0
+- [axios](https://www.npmjs.com/package/axios):^1.5.1
+- [axios](https://www.npmjs.com/package/axios):^1.5.1
+- [react-router-dom](https://www.npmjs.com/package/react-dom): ^6.17.0
 - [react-hook-form](https://www.npmjs.com/package/react-hook-form): 7.51.4
 - [react-icons](https://www.npmjs.com/package/react-icons): ^4.8.0
-- [react-tsparticles](https://www.npmjs.com/package/react-tsparticles): ^2.9.3
-- [tsparticles](https://www.npmjs.com/package/tsparticles): ^2.9.3
 
 ### Development Dependencies
 
@@ -86,10 +89,11 @@ Useful resources and dependencies that are used in My Portfolio.
 
 To learn more about React.js, take a look at the following resources:
 
+- [Typescript Documentation](https://www.typescriptlang.org/) - learn about Typescript.
 - [React.js Documentation](https://react.dev/) - learn about React.js library.
 - [Learn Vite.js](https://react.dev/) - Vite Next Generation Frontend Tooling.
 
-You can check out [the React.js GitHub repository](https://github.com/facebook/react) - your feedback and contributions are welcome!
+You can check out [the Typescript GitHub repository](https://github.com/microsoft/TypeScript) - your feedback and contributions are welcome!
 
 ## :page_with_curl: Deploy on Netlify
 
