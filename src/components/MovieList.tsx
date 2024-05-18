@@ -2,6 +2,7 @@ import { UseMovieDetails } from "@/hooks/useMovieDetails";
 import { Bookmark, HeartIcon, PlayCircle, SaveIcon } from "lucide-react";
 import Skeleton from "react-loading-skeleton";
 import GlobalLoader from "./GlobalLoader";
+import moment from 'moment';
 
 const MovieList = ({
   movie_id,
@@ -17,6 +18,9 @@ const MovieList = ({
   }
 
   if (!isLoading && data) {
+    const date = moment(data?.release_date);
+    const formatedDate = date.format("Do MMMM ");
+  
     return (
       <div className="absolute  h-[100vh] top-0 left-0 right-0 bottom-0 flex justify-between items-center overflow-hidden pb-[100px] ">
         <img
@@ -89,8 +93,8 @@ const MovieList = ({
                   isActive && "scale-100 opacity-100"
                 } `}
               >
-                <h2 className="uppercase text-7xl text-center mb-[20px] date-effect">
-                  on 15th August
+                <h2 className="uppercase text-7xl text-center mb-[20px] date-effect px-2 py-3">
+                 {formatedDate}
                 </h2>
               </div>
               <div

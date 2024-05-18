@@ -9,6 +9,7 @@ import Img from "../LazyLoad/Img";
 import "./movieCard.scss";
 
 const MovieCard = ({ item, Paramtype }: { item: Movie; Paramtype: string }) => {
+  console.log(item)
   const navigate = useNavigate();
   const gotoDetails = ({ id, type }: { id: number; type: string }) => {
     navigate(`/details/${id}/${type}`);
@@ -49,7 +50,7 @@ const MovieCard = ({ item, Paramtype }: { item: Movie; Paramtype: string }) => {
           {item.title || item.name}
         </div>
         <div className="text-slate-500 text-[15px] font-[600] max-lg:text-[14px] max-sm:text-[13px]">
-          {moment(item.release_date).format("MMM D, Y")}
+          {moment(item.first_air_date || item.release_date).format("MMM D, Y")}
         </div>
       </div>
     </div>

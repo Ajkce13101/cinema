@@ -56,7 +56,7 @@ export const useDiscoverMovie = ({
     queryFn: ({ pageParam = 1 }) => {
       return axiosInstance
         .get(
-          `/discover/${type}?page=${pageParam}&sort_by=${sort.value}&${
+          `/discover/${type}?page=${pageParam}&sort_by=popularity.desc&${
             genre && `with_genres=${genre}`
           }`
         )

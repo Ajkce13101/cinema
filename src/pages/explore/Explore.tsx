@@ -90,18 +90,6 @@ const Explore = () => {
               />
             )}
           </div>
-          <div>
-            <Select
-              name="sortby"
-              value={sort}
-              options={sortbyData}
-              isClearable={true}
-              placeholder="Sort by"
-              className=" react-select-container sortbyDD "
-              classNamePrefix="react-select"
-              onChange={(selectedItems) => setSort(selectedItems)}
-            />
-          </div>
         </div>
       </div>
       <InfiniteScroll
